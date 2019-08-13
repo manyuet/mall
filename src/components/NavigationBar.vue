@@ -1,5 +1,5 @@
 <template>
-    <el-menu class="el-menu-demo" text-color="#000000" active-text-color="#FC6720" mode="horizontal">
+    <el-menu :default-active="activeIndex" class="el-menu-demo"  mode="horizontal">
         <el-submenu index="1" >
             <template slot="title" >小米手机</template>
             <el-menu-item index="1-1" mode="horizontal">小米CC9</el-menu-item>
@@ -57,6 +57,7 @@
         name: 'NavigationBar',
         data: function () {
             return {
+                activeIndex: '1',
                 input: ''
             }
         },
@@ -65,5 +66,17 @@
 </script>
 
 <style scoped>
+    #frame {
+        height: 50px;
+    }
 
+    .icon {
+        background-color: #fc6720;
+        width: 50px;
+        height: 50px;
+    }
+
+    img:hover {
+        background-image :"../assets/homepage.png";
+    }
 </style>

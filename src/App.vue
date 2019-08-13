@@ -1,20 +1,30 @@
 <template>
-<div id="frame">
-    <navigator-bar></navigator-bar>
-</div>
+    <div id="frame">
+        <navigation-bar/>
+        <carousel/>
+    </div>
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar'
+    import Carousel from "./components/Carousel";
+    import NavigationBar from "./components/NavigationBar";
+
+
     export default {
         components: {
-            'navigator-bar': NavigationBar,
+            NavigationBar,
+            Carousel,
         }
 
     }
 </script>
 
-<style>
-
+<style scoped>
+#frame{
+    max-width: 1226px;
+    min-width: 1226px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 </style>
