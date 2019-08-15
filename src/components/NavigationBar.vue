@@ -44,7 +44,7 @@
         </el-submenu>
         <el-menu-item index="8"><a href="https://www.ele.me" target="_blank">服务</a></el-menu-item>
         <el-menu-item index="9"><a href="https://www.ele.me" target="_blank">社区</a></el-menu-item>
-        <el-menu-item index="10">
+        <el-menu-item index="10" style="float: right">
             <el-input v-model="input" placeholder="请输入内容">
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>

@@ -1,29 +1,32 @@
 <template>
     <div id="frame">
+        <div class="headerImg"><img :src="productInfo.headerImageSrc"></div>
         <div class="head">
-            <span style="margin-left: 25px;font-size: 22px;color: #333" >{{productInfo.type}}</span>
-            <span style="float: right;margin-right: 30px;color: #424242;font-size: 16px" @click="changeHotToAnother">&nbsp;&nbsp;&nbsp;&nbsp;{{productInfo.data.anotherName}}</span>
-            <span style="float: right;color: #424242;font-size: 16px" @click="changeAnotherToHot">热门</span>
+            <span style="margin-left: 5px;font-size: 22px;color: #333">{{productInfo.type}}</span>
+            <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span :class={selected:isSeleteAnother}
+                  style="float: right;font-size: 16px;margin-right: 10px" @mouseover="changeHotToAnother">{{productInfo.data.anotherName}}</span>
+            <span :class={selected:isSeleteHot}
+                  style="float: right;font-size: 16px;margin-right: 10px" @mouseover="changeAnotherToHot">热门</span>
         </div>
-
-        <el-row style="margin-left: 10px">
-            <el-col :span="4" style="margin-right: 30px">
+        <el-row >
+            <el-col :span="4">
                 <recommend-image :product="productInfo.data.recommend[0]"/>
             </el-col>
             <el-col :span="4" v-for="(product,index) in changeOfProduct.slice(0,4)" :key="index"
-                    style="margin-right: 30px">
+                    style="margin-left: 42px">
                 <good-item style="text-align: center" :product="product"/>
             </el-col>
         </el-row>
-        <el-row style="margin-left: 10px">
-            <el-col :span="4" style="margin-right: 30px">
+        <el-row style="margin-top: 8px">
+            <el-col :span="4">
                 <recommend-image :product="productInfo.data.recommend[1]"/>
             </el-col>
             <el-col :span="4" v-for="(product,index) in changeOfProduct.slice(4,7)" :key="index"
-                    style="margin-right: 30px">
+                    style="margin-left: 42px">
                 <good-item style="text-align: center" :product="product"/>
             </el-col>
-            <el-col :span="4">
+            <el-col :span="4" style="margin-left: 45px">
                 <el-row>
                     <small-good-item/>
                 </el-row>
@@ -48,16 +51,21 @@
         props: ['productInfo'],
         data() {
             return {
-                changeOfProduct: this.productInfo.data.hot
+                changeOfProduct: this.productInfo.data.hot,
+                isSeleteAnother:false,
+                isSeleteHot:true
             }
         },
         methods: {
             changeHotToAnother() {
-                this.changeOfProduct = this.productInfo.data.another
-                console.log(this.productInfo.data.another)
+                this.changeOfProduct = this.productInfo.data.another;
+                this.isSeleteHot=false;
+                this.isSeleteAnother=true
             },
             changeAnotherToHot() {
-                this.changeOfProduct = this.productInfo.data.hot
+                this.changeOfProduct = this.productInfo.data.hot;
+                this.isSeleteHot=true;
+                this.isSeleteAnother=false
             }
         }
     }
@@ -65,7 +73,17 @@
 
 <style scoped>
     #frame {
+        margin-top: 30px;
         margin-left: auto;
         margin-right: auto;
+    }
+
+    .selected {
+        color: #fc6720;
+        text-decoration: #fc6720 underline;
+    }
+    .head{
+        margin-top: 20px;
+        margin-bottom: 15px;
     }
 </style>

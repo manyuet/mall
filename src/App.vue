@@ -34,6 +34,7 @@
                 productInfos: [
                     {
                         type: '家电',
+                        headerImageSrc:'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/208e8bd91e6bc3a132eceff707717348.jpg?thumb=1&w=1226&h=120&f=webp&q=90',
                         data: {
                             recommend: [
                                 {
@@ -148,6 +149,7 @@
                     },
                     {
                         type: '智能',
+                        headerImageSrc:'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bd2480622e89bfedcfcf4e62ad679203.jpg?thumb=1&w=1226&h=120&f=webp&q=90',
                         data: {
                             recommend: [
                                 {
@@ -268,6 +270,7 @@
                     },
                     {
                         type: '搭配',
+                        headerImageSrc:'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/59e8fc8ba9718c266882719fb4bbcedd.jpg?thumb=1&w=1226&h=120&f=webp&q=90',
                         data: {
                             recommend: [
                                 {

@@ -1,6 +1,6 @@
 <template>
     <div class="smallGoodsDetailFrame">
-        <el-card style="height: 145px;width: 224px"  shadow="hover">
+        <el-card style="height: 140px;width: 224px"  shadow="hover">
             <el-row>
                 <el-col :span="12">
                     <el-row style="margin-top: 20px"><span style="font-size: 12px">笔记本</span></el-row>
@@ -24,6 +24,6 @@
 
 <style scoped>
     .smallGoodsDetailFrame {
-        margin: 5px;
+        margin: 5px 0 7px 0;
     }
 </style>

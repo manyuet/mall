@@ -1,9 +1,11 @@
 <template>
+    <div style="width: 1226px">
     <el-carousel :interval="5000" arrow="always" height="460px">
         <el-carousel-item v-for="(image,index) in images" :key="index">
             <img :src="image"/>
         </el-carousel-item>
     </el-carousel>
+    </div>
 </template>
 
 <script>
