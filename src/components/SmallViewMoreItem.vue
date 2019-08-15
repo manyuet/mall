@@ -1,5 +1,5 @@
 <template>
-    <div class="smallGoodsDetailFrame">
+    <div class="smallGoodsDetailFrame" style="width: 226px">
         <el-card style="height: 145px" shadow="hover">
             <el-row>
                 <el-col :span="12">

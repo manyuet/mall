@@ -6,12 +6,12 @@
                     <img src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/79ed6663b57e30554a5d1f0653c68b78.jpg?thumb=1&w=234&h=614&f=webp&q=90">
                 </th>
                 <th v-for="(good, index) in goods.slice(0,4)" :key="index">
-                    <good-item :good="good"/>
+                    <good-item :product="good"/>
                 </th>
             </tr>
             <tr>
                 <th v-for="(good, index) in goods.slice(4)" :key="index">
-                    <good-item :good="good"/>
+                    <good-item :product="good"/>
                 </th>
             </tr>
         </table>
@@ -70,7 +70,7 @@
                         price: 2299
                     },
                     {
-                        imageSrc: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/8ce424d6fe93dfb74733b5838140b7ee.jpg',
+                        imageSrc: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/5a29e913ad0ea4e06725b6a45c6c6822.jpg',
                         title: 'Refmi K20 Pro 6GB+128GB',
                         desc: '骁龙855，弹出全面屏',
                         price: 2299

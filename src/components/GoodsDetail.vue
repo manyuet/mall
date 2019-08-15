@@ -26,4 +26,8 @@
     #frame {
         margin: -5px;
     }
+
+    .goodsDetailFrame {
+        margin: 5px;
+    }
 </style>
