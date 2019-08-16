@@ -18,6 +18,9 @@
 <script>
     export default {
         name: "SmallGoodItem",
+        data(){
+
+        }
 
     }
 </script>

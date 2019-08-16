@@ -49,18 +49,18 @@
                         imageSrc: 'https://i8.mifile.cn/b2c-mimall-media/42519fc457160f638c30c5657d85ab10.png',
                         title: '小米MIX3',
                         desc: 'DxO百分拍照手机',
-                        price: 2999
+                        price: 2599
                     },
                     {
                         imageSrc: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/80e162c89662636b1e06402ede5bf530.jpg',
-                        title: 'Refmi K20 Pro 6GB+128GB',
-                        desc: '骁龙855，弹出全面屏',
-                        price: 2299
+                        title: '小米CC9e',
+                        desc: '3200万自拍，4800万三摄',
+                        price: 1299
                     },
                     {
                         imageSrc: 'https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/98b6d5e894ffed368c8bd316358702d5.jpg',
-                        title: 'Refmi K20 Pro 6GB+128GB',
-                        desc: '骁龙855，弹出全面屏',
+                        title: '小米CC9',
+                        desc: '3200万自拍，4800万三摄',
                         price: 2299
                     },
                     {
