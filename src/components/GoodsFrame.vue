@@ -19,7 +19,6 @@
 </template>
 
 <script>
-    import GoodsDetail from "./GoodsDetail";
     import GoodItem from "./GoodItem";
 
     export default {
@@ -79,8 +78,7 @@
             }
         },
         components: {
-            GoodItem,
-            GoodsDetail
+            GoodItem
         }
     }
 </script>

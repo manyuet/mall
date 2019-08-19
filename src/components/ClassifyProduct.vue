@@ -9,9 +9,9 @@
             <span :class={selected:isSeleteHot}
                   style="float: right;font-size: 16px;margin-right: 10px" @mouseover="changeAnotherToHot">热门</span>
         </div>
-        <el-row >
+        <el-row>
             <el-col :span="4">
-                <recommend-image :product="productInfo.data.recommend[0]"/>
+                <recommend-image :product="productInfo.data.recommend[0]" @click.native="openProductDetail"/>
             </el-col>
             <el-col :span="4" v-for="(product,index) in changeOfProduct.slice(0,4)" :key="index"
                     style="margin-left: 42px">
@@ -52,20 +52,27 @@
         data() {
             return {
                 changeOfProduct: this.productInfo.data.hot,
-                isSeleteAnother:false,
-                isSeleteHot:true
+                isSeleteAnother: false,
+                isSeleteHot: true
             }
         },
         methods: {
             changeHotToAnother() {
                 this.changeOfProduct = this.productInfo.data.another;
-                this.isSeleteHot=false;
-                this.isSeleteAnother=true
+                this.isSeleteHot = false;
+                this.isSeleteAnother = true
             },
             changeAnotherToHot() {
                 this.changeOfProduct = this.productInfo.data.hot;
-                this.isSeleteHot=true;
-                this.isSeleteAnother=false
+                this.isSeleteHot = true;
+                this.isSeleteAnother = false
+            },
+            openProductDetail() {
+                const {href} = this.$router.resolve({
+                    name: "Product",
+                    query:{ productId: '12345'}
+                });
+                window.open(href, "_blank")
             }
         }
     }
@@ -82,7 +89,8 @@
         color: #fc6720;
         text-decoration: #fc6720 underline;
     }
-    .head{
+
+    .head {
         margin-top: 20px;
         margin-bottom: 15px;
     }
