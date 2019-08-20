@@ -2,7 +2,7 @@
     <div>
         <carousel/>
         <goods-frame/>
-        <classify-product v-for="(productInfo,index) in productInfos" :key="index" :productInfo="productInfo"/>
+        <classify-product class="classify-product" v-for="(productInfo,index) in productInfos" :key="index" :productInfo="productInfo"/>
     </div>
 </template>
 
