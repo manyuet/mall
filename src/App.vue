@@ -3,7 +3,6 @@
         <navigation-bar/>
         <div>
             <router-view/>
-                <broad-side-navigation-bar class="broad"/>
         </div>
         <el-backtop :bottom="100"></el-backtop>
 
@@ -13,12 +12,10 @@
 
 <script>
     import NavigationBar from "./components/NavigationBar";
-    import BroadSideNavigationBar from "./components/BroadSideNavigationBar";
 
 
     export default {
         components: {
-            BroadSideNavigationBar,
             NavigationBar,
         },
         data() {
@@ -36,11 +33,5 @@
         margin-right: auto;
     }
 
-    .broad {
-        position: fixed;
-        bottom: 160px;
-        right: 40px;
-        background-color: white;
-    }
 
 </style>

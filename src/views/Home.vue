@@ -2,7 +2,9 @@
     <div>
         <carousel/>
         <goods-frame/>
-        <classify-product class="classify-product" v-for="(productInfo,index) in productInfos" :key="index" :productInfo="productInfo"/>
+        <classify-product class="classify-product" v-for="(productInfo,index) in productInfos" :key="index"
+                          :productInfo="productInfo"/>
+        <broad-side-navigation-bar class="broad"/>
     </div>
 </template>
 
@@ -10,9 +12,11 @@
     import Carousel from "../components/Carousel";
     import GoodsFrame from "../components/GoodsFrame";
     import ClassifyProduct from "../components/ClassifyProduct";
+    import BroadSideNavigationBar from "../components/BroadSideNavigationBar";
+
     export default {
         name: "Home",
-        components: {ClassifyProduct, GoodsFrame, Carousel},
+        components: {BroadSideNavigationBar, ClassifyProduct, GoodsFrame, Carousel},
         data() {
             return {
                 productInfos: [
@@ -374,5 +378,10 @@
 </script>
 
 <style scoped>
-
+    .broad {
+        position: fixed;
+        bottom: 160px;
+        right: 40px;
+        background-color: white;
+    }
 </style>

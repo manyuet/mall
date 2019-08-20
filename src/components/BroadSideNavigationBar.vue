@@ -6,7 +6,7 @@
                     <i class="el-icon-mobile-phone"></i>
                     <span slot="title">手机APP</span>
                 </el-menu-item>
-                <el-menu-item index="2">
+                <el-menu-item index="2" @click="openPersonalCenter">
                     <i class="el-icon-user"></i>
                     <span slot="title">个人中心</span>
                 </el-menu-item>
@@ -30,7 +30,15 @@
 <script>
     export default {
         name: "BroadSideNavigationBar",
-        methods: {}
+        methods: {
+            openPersonalCenter(){
+                const {href} = this.$router.resolve({
+                    name: "Personal"
+                });
+                window.open(href, "_blank");
+                console.log(1)
+            }
+        }
     }
 </script>
 
