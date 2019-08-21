@@ -1,12 +1,12 @@
 <template>
+    <div style="background-color:rgb(245,245,245) ">
     <div class="frame">
         <navigation-bar/>
-        <div>
+        <div >
             <router-view/>
         </div>
         <el-backtop :bottom="100"></el-backtop>
-
-
+    </div>
     </div>
 </template>
 

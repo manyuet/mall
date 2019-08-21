@@ -1,5 +1,5 @@
 <template>
-    <el-row class="tac">
+    <el-row class="tac" style="background-color: white">
         <el-col :span="4">
             <el-menu class="el-menu-vertical-demo">
                 <el-menu-item index="1" >
@@ -36,7 +36,6 @@
                     name: "Personal"
                 });
                 window.open(href, "_blank");
-                console.log(1)
             }
         }
     }
@@ -45,11 +44,11 @@
 <style scoped>
 .el-menu-item.is-active{
     color: #fc6720;
-    background-color: transparent;
+    background-color: white;
 }
 .el-menu-item:hover{
     color: #fc6720;
-    background-color: transparent;
+    background-color: white;
 }
 .el-menu-item{
    width: 80px;
@@ -57,8 +56,8 @@
 }
 .el-menu{
     border: none;
-    background-color: transparent;
 }
+
     menu-item:hover{
         background-color: white;
     }

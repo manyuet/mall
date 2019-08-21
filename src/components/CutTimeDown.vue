@@ -12,7 +12,7 @@
         data(){
             return{
                 countDownList: '00时00分00秒',
-                actEndTime: '2019-08-19 18:30:00'
+                actEndTime: '2019-08-21 18:30:00'
             }
         },
         created() {
@@ -22,8 +22,8 @@
             timeFormat(param) {
                 return param < 10 ? '0' + param : param;
             },
-            countDown(it) {
-                var interval = setInterval(() => {
+            countDown() {
+                const interval = setInterval(() => {
                     // 获取当前时间，同时得到活动结束时间数组
                     let newTime = new Date().getTime();
                     // 对结束时间进行处理渲染到页面

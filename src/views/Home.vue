@@ -383,5 +383,6 @@
         bottom: 160px;
         right: 40px;
         background-color: white;
+        width: 120px;
     }
 </style>
