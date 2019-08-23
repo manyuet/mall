@@ -1,21 +1,27 @@
 <template>
     <div style="background-color:rgb(245,245,245) ">
-    <div class="frame">
-        <navigation-bar/>
-        <div >
-            <router-view/>
+        <div class="frame">
+        <top-navigation-bar/>
+            <navigation-bar/>
+            <div>
+                <router-view/>
+            </div>
+            <web-bottom/>
+            <el-backtop :bottom="100"></el-backtop>
         </div>
-        <el-backtop :bottom="100"></el-backtop>
-    </div>
     </div>
 </template>
 
 <script>
     import NavigationBar from "./components/NavigationBar";
+    import WebBottom from "./components/WebBottom";
+    import TopNavigationBar from "./components/TopNavigationBar";
 
 
     export default {
         components: {
+            TopNavigationBar,
+            WebBottom,
             NavigationBar,
         },
         data() {

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="background-color: white">
         <el-row>
             <el-col :span="11">
                 <el-carousel trigger="click" height="560px">
@@ -64,48 +64,17 @@
         components: {CutTimeDown},
         data() {
             return {
-                productInfos: {
-                    title: '自动洗衣机',
-                    desc: '8kg大容量 / 10种洗涤模式 / 10挡水位调节 / 耐腐蚀金属机身 ',
-                    price: 699,
-                    originalPrice: 799,
-                    colors: [{
-                        value: '选项1',
-                        label: 'red'
-                    },
-                        {
-                            value: '选项2',
-                            label: 'white'
-                        },
-                        {
-                            value: '选项3',
-                            label: 'black'
-                        }],
-                    value: '',
-                    address: {
-                        province: '北京',
-                        city:
-                            '北京市',
-                        area:
-                            '东城区',
-                        street:
-                            '安定门街道'
-                    }
-                    ,
-                    imgUrls: [
-                        'https://i8.mifile.cn/a1/pms_1552868299.30794969.jpg',
-                        'https://i8.mifile.cn/a1/pms_1552868299.27348967.jpg',
-                        'https://i8.mifile.cn/a1/pms_1552868299.23297041.jpg'
-                    ],
-                    descImaUrls:
-                        [
-                            'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/2275f33086088c905d3fd4cf109f17fc.jpg',
-                            'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bf795dc12f719db2f18bdf539b0574f4.jpg',
-                            'http://cdn.cnbj1.fds.api.mi-img.com/mi-mall/1cebadeca87317544405a72394e604e3.jpg'
-                        ]
-                }
+                productInfos: []
             }
         },
+        created(){
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/products?productId=1").then(response=>{
+                this.productInfos=response.data
+            }).catch(error=>{
+                console.log(error);
+            })
+        },
+
         methods:{
 
         }

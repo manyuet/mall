@@ -1,7 +1,7 @@
 <template>
     <div class="goodsDetailFrame">
         <el-card style="height: 300px;width: 224px"  shadow="hover">
-            <img :src='product.imageSrc'
+            <img :src="product.imageSrc"
                  style="height: 160px;width: 160px;margin: 0 auto"><br>
             <div>
                 <span style="font-size: 14px">{{product.title}}</span><br>
@@ -23,4 +23,5 @@
     .goodsDetailFrame {
         margin: 5px;
     }
+
 </style>
