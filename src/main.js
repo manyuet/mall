@@ -26,7 +26,8 @@ library.add(
     faHistory,
     faGift,
     faMapMarkerAlt,
-    faShoppingCart
+    faShoppingCart,
+
 );
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
