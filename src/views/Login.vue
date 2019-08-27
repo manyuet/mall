@@ -113,9 +113,10 @@
         font-size: 14px;
         margin-top: 15px;
     }
-    button:focus{
+
+    button:focus {
         border-color: #fc6720;
-        outline:none;
+        outline: none;
     }
 
 
@@ -126,7 +127,8 @@
     .el-link:hover {
         color: #fc6720;
     }
-    .el-input.is-active{
+
+    .el-input.is-active {
         border-color: #cccfcf;
     }
 

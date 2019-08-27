@@ -3,7 +3,7 @@
         <div class="frame">
         <top-navigation-bar/>
             <navigation-bar/>
-            <div>
+            <div style="min-height: 700px">
                 <router-view/>
             </div>
             <web-bottom/>

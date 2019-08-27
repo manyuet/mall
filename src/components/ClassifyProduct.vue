@@ -13,25 +13,33 @@
             <el-col :span="4">
                 <recommend-image :product="productInfo.data.recommend[0]" @click.native="openProductDetail"/>
             </el-col>
-            <el-col :span="4" v-for="(product,index) in changeOfProduct.slice(0,4)" :key="index"
+            <el-col :span="4"
+                    v-for="(product,index) in changeOfProduct.slice(0,4)"
+                    :key="index"
                     style="margin-left: 42px">
-                <good-item style="text-align: center" :product="product"/>
+                <good-item style="text-align: center"
+                           :product="product"
+                           @click.native="openProductDetail"/>
             </el-col>
         </el-row>
         <el-row style="margin-top: 8px">
             <el-col :span="4">
-                <recommend-image :product="productInfo.data.recommend[1]"/>
+                <recommend-image :product="productInfo.data.recommend[1]" @click.native="openProductDetail"/>
             </el-col>
-            <el-col :span="4" v-for="(product,index) in changeOfProduct.slice(4,7)" :key="index"
+            <el-col :span="4"
+                    v-for="(product,index) in changeOfProduct.slice(4,7)"
+                    :key="index"
                     style="margin-left: 42px">
-                <good-item style="text-align: center" :product="product"/>
+                <good-item style="text-align: center"
+                           :product="product"
+                           @click.native="openProductDetail"/>
             </el-col>
             <el-col :span="4" style="margin-left: 45px">
                 <el-row>
-                    <small-good-item/>
+                    <small-good-item @click.native="openProductDetail"/>
                 </el-row>
                 <el-row>
-                    <small-view-more-item/>
+                    <small-view-more-item @click.native="openProductDetail"/>
                 </el-row>
             </el-col>
         </el-row>

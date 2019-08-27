@@ -31,7 +31,7 @@
                               :key="index"
                               :label="color.label"
                               border
-                    style="width: 175px;fill: #fc6720"
+                              style="width: 175px;fill: #fc6720"
 
                     >
                     </el-radio>
@@ -41,15 +41,24 @@
                     <span style="color: #fc6720;font-size: 24px;margin-left: 15px">{{productInfos.price}}元</span>
                 </el-row>
                 <el-row style="margin-top: 10px">
-                    <el-button style="background-color: #fc6720;color: white;width: 280px">登录后购买</el-button>
-                    <el-button style="background-color: rgb(176,176,176);color: white;width: 150px" >
-                        <i class="el-icon-star-off"></i>&nbsp;收藏</el-button>
+                    <el-button v-if="userNotNull"
+                               :class={username:userNotNull}
+                               @click.native="openShoppingCart"
+                               style="background-color: #fc6720;color: white;width: 280px">加入购物车
+                    </el-button>
+                    <el-button v-else
+                               :class={username:userIsNull}
+                               style="background-color: #fc6720;color: white;width: 280px">登录后购买
+                    </el-button>
+                    <el-button style="background-color: rgb(176,176,176);color: white;width: 150px">
+                        <i class="el-icon-star-off"></i>&nbsp;收藏
+                    </el-button>
                 </el-row>
             </el-col>
         </el-row>
         <el-row v-for="(image,index) in productInfos.descImaUrls"
-             :key="index"
-             style="width: 100%;background-color:rgb(245,245,245)">
+                :key="index"
+                style="width: 100%;background-color:rgb(245,245,245)">
             <img :src="image">
         </el-row>
     </div>
@@ -64,19 +73,24 @@
         components: {CutTimeDown},
         data() {
             return {
-                productInfos: []
+                productInfos: [],
+                userNotNull: true,
+                userIsNull: false
+
             }
         },
-        created(){
-            this.axios.get("http://mock-api.com/NnX4Gkny.mock/products?productId=1").then(response=>{
-                this.productInfos=response.data
-            }).catch(error=>{
+        created() {
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/products?productId=1").then(response => {
+                this.productInfos = response.data
+            }).catch(error => {
                 console.log(error);
             })
         },
 
-        methods:{
-
+        methods: {
+            openShoppingCart(){
+                this.$router.push("/shoppingCart")
+            }
         }
     }
 

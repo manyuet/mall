@@ -2,7 +2,7 @@
     <div style="background-color:#424242;">
         <el-row style="line-height: 40px;">
             <el-col :span="14">
-                <el-link style="margin-left: 5px" :underline="false">小米商城</el-link>
+                <el-link style="margin-left: 5px" :underline="false" @click="openHome">小米商城</el-link>
                 <el-divider direction="vertical"></el-divider>
                 <el-link :underline="false">MIUI</el-link>
                 <el-divider direction="vertical"></el-divider>
@@ -31,7 +31,7 @@
                 <el-divider direction="vertical"></el-divider>
                 <el-link :underline="false">消息通知</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">
+                <el-link :underline="false" @click="openShoppingCart">
                 <span class="icon ShoppingCart"><font-awesome-icon :icon="['fas', 'shopping-cart']"></font-awesome-icon></span>
                     购物车
                 </el-link>
@@ -54,8 +54,15 @@
             },
             openRegister(){
                 this.$router.push('/register');
+            },
+            openShoppingCart(){
+                this.$router.push("/shoppingCart")
+
+            },
+            openHome(){
+                this.$router.push("/")
             }
-        }
+       }
     }
 </script>
 
