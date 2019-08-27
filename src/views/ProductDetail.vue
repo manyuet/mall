@@ -26,13 +26,12 @@
                 </el-row>
                 <div style="margin-top: 10px">
                     <span>选择颜色</span><br>
-                    <el-radio v-model="productInfos.value"
+                    <el-radio v-model="selectedColor"
                               v-for="(color,index) in productInfos.colors"
                               :key="index"
                               :label="color.label"
                               border
                               style="width: 175px;fill: #fc6720"
-
                     >
                     </el-radio>
                 </div>
@@ -43,7 +42,7 @@
                 <el-row style="margin-top: 10px">
                     <el-button v-if="userNotNull"
                                :class={username:userNotNull}
-                               @click.native="openShoppingCart"
+                               @click.native="clickShoppingCart"
                                style="background-color: #fc6720;color: white;width: 280px">加入购物车
                     </el-button>
                     <el-button v-else
@@ -75,8 +74,9 @@
             return {
                 productInfos: [],
                 userNotNull: true,
-                userIsNull: false
-
+                userIsNull: false,
+                selectedColor: '',
+                shoppingCartProducts: JSON.parse(localStorage.getItem('shoppingCartProducts')) || []
             }
         },
         created() {
@@ -84,14 +84,42 @@
                 this.productInfos = response.data
             }).catch(error => {
                 console.log(error);
-            })
+            });
+            this.storageProduct();
+
         },
 
         methods: {
-            openShoppingCart(){
-                this.$router.push("/shoppingCart")
+            clickShoppingCart() {
+                if (!this.selectedColor) {
+                    this.$message.error('请选择商品颜色');
+                } else {
+                    let productInfo = {
+                        name: this.productInfos.title,
+                        price: this.productInfos.price,
+                        color: this.selectedColor,
+                        imgSrc: this.productInfos.imgUrls[0],
+                        count: 1
+                    }
+                    let flag = false;
+                    for (const shoppingCartProduct of this.shoppingCartProducts) {
+                        if (shoppingCartProduct.name === productInfo.name && shoppingCartProduct.color === productInfo.color) {
+                            flag = true;
+                            shoppingCartProduct.count += 1;
+                        }
+                    }
+                    if (!flag) {
+                        this.shoppingCartProducts.push(productInfo);
+                    }
+                    this.storageProduct();
+                    this.$router.push("/shoppingCart");
+                }
+            },
+            storageProduct() {
+                localStorage.setItem('shoppingCartProducts', JSON.stringify(this.shoppingCartProducts));
             }
         }
+
     }
 
 </script>

@@ -27,11 +27,11 @@
                         <span @click="displayGreeting"
                               class="displayGreeting"
                         style="font-size: 14px;color: #B0B0B0;">{{hoursTip}}</span><br>
-                        <p style="color: #fc6720;font-size: 12px;margin-top: -30px">修改个人信息</p>
+                        <p style="color: #2c9cfa;font-size: 12px;margin-top: -30px">修改个人信息</p>
                     </el-col>
                     <el-col :span="6">
                         <p style="margin-top: 75px;font-size: 14px;margin-bottom: -30px;color: #757575">账户安全：
-                            <span style="color: #fc6720">普通</span></p>
+                            <span style="color: #2c9cfa">普通</span></p>
                         <p style="font-size: 14px;margin-bottom: -30px;color: #757575">绑定手机：未绑定</p>
                     </el-col>
                 </el-row>

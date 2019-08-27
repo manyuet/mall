@@ -106,7 +106,7 @@
     }
 
     button {
-        background-color: #fc6720;
+        background-color: #2C9CFA;
         width: 360px;
         height: 50px;
         color: white;
@@ -115,17 +115,8 @@
     }
 
     button:focus {
-        border-color: #fc6720;
+        border-color: #2C9CFA;
         outline: none;
-    }
-
-
-    .el-link:active {
-        color: #fc6720;
-    }
-
-    .el-link:hover {
-        color: #fc6720;
     }
 
     .el-input.is-active {

@@ -1,43 +1,6 @@
 <template>
     <div id="frame">
         <div id="itemDetail">
-            <!--            <div class="operateBar" style="border-bottom: #e3e6e6 1px solid">-->
-            <!--                <el-row style="line-height: 70px;font-size: 14px;color: #424242">-->
-            <!--                    <el-col :span="2" style="margin-left: 10px">-->
-            <!--                        <input type="checkbox" style="width: 20px"> 全选</input>-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="7" :offset="2" style="text-align: left;">-->
-            <!--                        商品名称-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="2" style="text-align: center">单价</el-col>-->
-            <!--                    <el-col :span="5" style="text-align: center">数量</el-col>-->
-            <!--                    <el-col :span="3" style="text-align: center">小计</el-col>-->
-            <!--                    <el-col :span="1" style="text-align: center">操作</el-col>-->
-            <!--                </el-row>-->
-            <!--            </div>-->
-            <!--            <div class="item">-->
-            <!--                <el-row v-for="(productInfo,index) in productInfos"-->
-            <!--                        :key="index"-->
-            <!--                        style="line-height: 100px;border-bottom: #e3e6e6 1px solid">-->
-            <!--                    <el-col :span="2" style="margin-left: 10px">-->
-            <!--                        <input type="checkbox"></input>-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="1" style="margin-top: 10px">-->
-            <!--                        <img :src="productInfo.imageSrc">-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="7" :offset="1">-->
-            <!--                        <span>{{productInfo.name}}&nbsp;&nbsp;&nbsp;{{productInfo.color}}</span>-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="2" style="text-align: center">{{productInfo.price}}元</el-col>-->
-            <!--                    <el-col :span="5" style="text-align: center">-->
-            <!--                        <el-input-number-->
-            <!--                                v-model="productInfo.count"-->
-            <!--                                @change="handleChange"-->
-            <!--                                :min="1"></el-input-number>-->
-            <!--                    </el-col>-->
-            <!--                    <el-col :span="3">{{productInfo.subtotal}}</el-col>-->
-            <!--                </el-row>-->
-            <!--            </div>-->
             <el-table
                     ref="multipleTable"
                     :data="productInfos"
@@ -58,7 +21,7 @@
                     <template slot-scope="scope">
                         <el-row>
                             <el-col :span="3">
-                                <img :src="scope.row.imageSrc"/>
+                                <img :src="scope.row.imgSrc" style="width: 80px;height:80px "/>
                             </el-col>
                             <el-col :span="18" style="line-height: 85px">
                                 {{scope.row.name}}&nbsp;{{scope.row.color}}
@@ -133,27 +96,14 @@
                 productNum: 0,
                 totalPrice: 0,
                 selections: [],
-                productInfos: [{
-                    name: "Redmi全自动波轮洗衣机 1A 8kg",
-                    color: "白色",
-                    price: 799,
-                    count: 1,
-                    imageSrc: 'https://i1.mifile.cn/a1/pms_1560161251.21862332!80x80.jpg'
-                },
-                    {
-                        name: "Redmi全自动波轮洗衣机 1A 8kg",
-                        color: "红色",
-                        price: 799,
-                        count: 1,
-                        imageSrc: 'https://i1.mifile.cn/a1/pms_1560161251.21862332!80x80.jpg'
-                    }]
+                productInfos:JSON.parse(localStorage.getItem("shoppingCartProducts"))
             }
         },
         methods: {
             handleSelectionChange(selections) {
                 this.productNum = selections.length;
-                this.selections = selections
-                this.calculateTotalPrice()
+                this.selections = selections;
+                this.calculateTotalPrice();
             },
             deleteRow(index, rows) {
                 rows.splice(index, 1);
@@ -164,6 +114,7 @@
                     this.totalPrice += Number(selection.count) * Number(selection.price);
                 }
             }
+
         }
     }
 </script>
