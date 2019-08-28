@@ -6,6 +6,7 @@ import PersonalCenter from "./views/PersonalCenter";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import ShoppingCart from "./views/ShoppingCart";
+import ConfirmOrder from "./views/ConfirmOrder";
 
 Vue.use(VueRouter);
 
@@ -39,6 +40,11 @@ const routes = [
         path:'/shoppingCart',
         name:'ShoppingCart',
         component:ShoppingCart
+    },
+    {
+        path:'/confirmOrder',
+        name:'ConfirmOrder',
+        component:ConfirmOrder
     }
 
 ];

@@ -12,11 +12,11 @@
                 <span style="font-size: 24px">{{productInfos.title}}</span><br>
                 <div style="font-size: 14px;color: rgb(176,176,176);margin-top: 5px">{{productInfos.desc}}</div>
                 <br>
-                <span style="font-size: 18px;color: #fc6720">{{productInfos.price}}元</span><br>
-                <el-row style="background-color: #fc6720;color: white;line-height: 40px;margin-top: 5px">
+                <span style="font-size: 18px;color: #2c9cfa">{{productInfos.price}}元</span><br>
+                <el-row style="background-color: #2c9cfa;color: white;line-height: 40px;margin-top: 5px">
                     <cut-time-down/>
                 </el-row>
-                <el-row style="background-color:rgb(249,249,250);color: #fc6720;line-height: 50px;margin-top: 5px;">
+                <el-row style="background-color:rgb(249,249,250);color: #2c9cfa;line-height: 50px;margin-top: 5px;">
                     <span style="margin-left: 15px;font-size: 24px">￥{{productInfos.price}}元</span>
                 </el-row>
                 <el-row style="line-height: 70px;background-color: rgb(250,250,250);margin-top: 5px">
@@ -31,23 +31,23 @@
                               :key="index"
                               :label="color.label"
                               border
-                              style="width: 175px;fill: #fc6720"
+                              style="width: 175px;fill: #2c9cfa"
                     >
                     </el-radio>
                 </div>
                 <el-row style="background-color: rgb(249,249,250);line-height: 50px;margin-top: 10px">
                     <span style="margin-left: 15px">{{productInfos.title}}</span><br>
-                    <span style="color: #fc6720;font-size: 24px;margin-left: 15px">{{productInfos.price}}元</span>
+                    <span style="color: #2c9cfa;font-size: 24px;margin-left: 15px">{{productInfos.price}}元</span>
                 </el-row>
                 <el-row style="margin-top: 10px">
                     <el-button v-if="userNotNull"
                                :class={username:userNotNull}
                                @click.native="clickShoppingCart"
-                               style="background-color: #fc6720;color: white;width: 280px">加入购物车
+                               style="background-color: #2c9cfa;color: white;width: 280px">加入购物车
                     </el-button>
                     <el-button v-else
                                :class={username:userIsNull}
-                               style="background-color: #fc6720;color: white;width: 280px">登录后购买
+                               style="background-color: #2c9cfa;color: white;width: 280px">登录后购买
                     </el-button>
                     <el-button style="background-color: rgb(176,176,176);color: white;width: 150px">
                         <i class="el-icon-star-off"></i>&nbsp;收藏
@@ -99,7 +99,8 @@
                         price: this.productInfos.price,
                         color: this.selectedColor,
                         imgSrc: this.productInfos.imgUrls[0],
-                        count: 1
+                        count: 1,
+                        address:this.productInfos.address
                     }
                     let flag = false;
                     for (const shoppingCartProduct of this.shoppingCartProducts) {

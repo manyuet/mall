@@ -78,7 +78,8 @@
                         <span style="color: #2C9CFA;font-size: 30px;">{{totalPrice}}</span>
                 </el-col>
                 <el-col :span="4">
-                    <el-button style="background-color: #2C9CFA;float: right;color: white;line-height: 28px;width: 150px">去结算</el-button>
+                    <el-button @click.native="confirmOrder"
+                            style="background-color: #2C9CFA;float: right;color: white;line-height: 28px;width: 150px">去结算</el-button>
                 </el-col>
 
             </el-row>
@@ -104,6 +105,7 @@
                 this.productNum = selections.length;
                 this.selections = selections;
                 this.calculateTotalPrice();
+                localStorage.setItem("selectedProducts",JSON.stringify(this.selections));
             },
             deleteRow(index, rows) {
                 rows.splice(index, 1);
@@ -112,6 +114,14 @@
                 this.totalPrice = 0;
                 for (const selection of this.selections) {
                     this.totalPrice += Number(selection.count) * Number(selection.price);
+                }
+            },
+            confirmOrder(){
+                if(!this.productNum){
+                    this.$message.error('请选择商品结算');
+                }
+                else {
+                    this.$router.push("/confirmOrder");
                 }
             }
 
