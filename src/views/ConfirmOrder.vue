@@ -53,7 +53,7 @@
             <div style="border-bottom:#e3e6e6 solid 1px;margin-top: 10px;font-size: 14px;color: #757575;text-align: right;height: 180px;padding-right: 100px">
                 <el-row style="line-height: 30px;margin-top: 50px">
                     <el-col :span="22">商品件数：</el-col>
-                    <span style="color: #2C9CFA">{{productInfos.length}}件</span>
+                    <span style="color: #2C9CFA">{{totalProductNum}}件</span>
                 </el-row>
                 <el-row style="line-height: 30px">
                     <el-col :span="22">商品总价：</el-col>
@@ -90,7 +90,8 @@
                 username: '小阿萨德',
                 phoneNumber: 1234567,
                 productInfos: JSON.parse(localStorage.getItem("selectedProducts")),
-                totalPrice: 0
+                totalPrice: 0,
+                totalProductNum:0
             }
         },
         methods: {
@@ -107,10 +108,9 @@
         created() {
             this.totalPrice = 0;
             for (const productInfo of this.productInfos) {
+                this.totalProductNum+=productInfo.count;
                 this.totalPrice += Number(productInfo.count * productInfo.price)
             }
-
-
         }
     }
 </script>

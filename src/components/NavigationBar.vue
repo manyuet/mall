@@ -60,8 +60,7 @@
                 activeIndex: '1',
                 input: ''
             }
-        },
-        methods: {}
+        }
     }
 </script>
 
@@ -74,9 +73,5 @@
         background-color: #fc6720;
         width: 50px;
         height: 50px;
-    }
-
-    img:hover {
-        background-image :"../assets/homepage.png";
     }
 </style>
