@@ -12,11 +12,9 @@
                 <el-row style="font-size: 30px;color:#757575;line-height: 50px">
                     <el-col :span="4">我的订单</el-col>
                     <el-col :span="10" style="font-size: 12px;color: #757575;">请谨慎钓鱼链接或诈骗电话,
-                        <el-link :underline="false">了解更多></el-link>
+                        <el-link :underline="false" style="font-size: 12px;color: #757575;">了解更多></el-link>
                     </el-col>
                 </el-row>
-
-
                 <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
                     <el-menu-item index="all">全部有效订单</el-menu-item>
                     <el-menu-item index="waitPay">待支付</el-menu-item>
@@ -54,7 +52,7 @@
                         </el-col>
                         <el-col :span="3" style="float: right;margin-top: 5px">
                             <el-row>
-                                <el-button>订单详情</el-button>
+                                <el-button @click.native="openOrderDetail">订单详情</el-button>
                             </el-row>
                             <el-row style="margin-top: 5px">
                                 <el-button>申请售后</el-button>
@@ -102,15 +100,28 @@
                             day: 4
                         },
                         orderId: 201604049903,
-                        username: 'zojian'
+                        username: 'zojian',
+                        address: {
+                            province: "北京",
+                            city: "北京市",
+                            area: "东城区",
+                            street: "安定门街道"
+                        }
+
                     },
                 ]
             }
         },
         methods: {
-            handleSelect(key, path){
+            handleSelect(key, path) {
                 this.currentTab = key
+            },
+            openOrderDetail() {
+                this.$router.push('/orderDetail');
             }
+        },
+        created() {
+
         }
     }
 </script>
