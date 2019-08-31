@@ -24,7 +24,7 @@
                     </el-row>
                     <el-row style="font-size: 18px;color: #B0B0B0;line-height: 70px">{{orders.status}}</el-row>
                     <el-row>
-                        <el-steps v-if="orders.status==='received'" :active="active" finish-status="success">
+                        <el-steps :active="active" finish-status="success">
                             <el-step title="下单"></el-step>
                             <el-step title="付款"></el-step>
                             <el-step title="配货"></el-step>
@@ -92,7 +92,7 @@
                 active: 5,
                 orders: {
                     name: "小米圈铁耳机",
-                    status: 'received',
+                    status: 'waitReceive',
                     color: "golden",
                     img: 'https://i1.mifile.cn/a1/pms_1502337101.83975105!80x80.jpg',
                     price: 99,
@@ -113,6 +113,14 @@
                     }
 
                 }
+            }
+        },
+        created() {
+            if (this.orders.status==='waitPay') {
+                this.active=1;
+            }
+            if (this.orders.status==='waitReceive') {
+                this.active=4;
             }
         }
     }
