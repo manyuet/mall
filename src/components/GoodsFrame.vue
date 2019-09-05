@@ -29,7 +29,7 @@
             }
         },
         created(){
-            this.axios.get("http://mock-api.com/NnX4Gkny.mock/homePageMobile").then(response=>{
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/home?type=mobile").then(response=>{
                 this.goods=response.data;
             }).catch(error=>{
                 console.log(error)

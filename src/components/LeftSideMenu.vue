@@ -20,110 +20,15 @@
         name: "LeftSideMenu",
         data() {
             return {
-                Menus: [
-                    {
-                        title: '订单中心',
-                        children: [
-                            {
-                                title: '我的订单',
-                                method: 'myOrderFn'
-                            },
-                            {
-                                title: '团购订单',
-                                method: 'myOrderFn'
-                            },
-                            {
-                                title: '评价晒单',
-                                method: 'myOrderFn'
-                            },
-                            {
-                                title: '话费充值订单',
-                                method: 'myOrderFn'
-                            },
-                            {
-                                title: '以旧换新订单',
-                                method: 'myOrderFn'
-                            }
-                        ]
-                    },
-                    {
-                        title: '个人中心',
-                        children:
-                            [
-                                {
-                                    title: '我的个人中心',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '消息通知',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '购买资格',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '现金账户',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '小米礼品卡',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '现金券',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '喜欢的商品',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '优惠券',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '收货地址',
-                                    method: 'myPersonalFn'
-                                }
-                            ]
-                    }
-                    ,
-                    {
-                        title: '售后服务',
-                        children:
-                            [
-                                {
-                                    title: '服务记录',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '申请服务',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '领取快递报销',
-                                    method: 'myPersonalFn'
-                                },
-                            ]
-                    }
-                    ,
-                    {
-                        title: '账户管理',
-                        children:
-                            [
-                                {
-                                    title: '个人信息',
-                                    method: 'myPersonalFn'
-                                },
-                                {
-                                    title: '修改密码',
-                                    method: 'myPersonalFn'
-                                }
-                            ]
-                    }
-                ]
+                Menus: []
             }
+        },
+        created(){
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/users/menu").then(response=>{
+                this.Menus=response.data;
+            }).catch(error=>{
+                console.log(error)
+            })
         },
         methods: {
             Fn(method) {

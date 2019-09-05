@@ -24,7 +24,7 @@
                     </el-row>
                     <el-row style="font-size: 18px;color: #B0B0B0;line-height: 70px">{{orders.status}}</el-row>
                     <el-row>
-                        <el-steps :active="active" finish-status="success">
+                        <el-steps :active="orders.active" finish-status="success">
                             <el-step title="下单"></el-step>
                             <el-step title="付款"></el-step>
                             <el-step title="配货"></el-step>
@@ -89,38 +89,20 @@
         components: {LeftSideMenu},
         data() {
             return {
-                active: 5,
-                orders: {
-                    name: "小米圈铁耳机",
-                    status: 'waitReceive',
-                    color: "golden",
-                    img: 'https://i1.mifile.cn/a1/pms_1502337101.83975105!80x80.jpg',
-                    price: 99,
-                    count: 3,
-                    date: {
-                        year: 2016,
-                        month: 4,
-                        day: 4
-                    },
-                    orderId: 201604049903,
-                    username: 'zojian',
-                    phoneNumber: 123456789,
-                    address: {
-                        province: "北京",
-                        city: "北京市",
-                        area: "东城区",
-                        street: "安定门街道"
-                    }
-
-                }
+                orders: {}
             }
         },
         created() {
-            if (this.orders.status==='waitPay') {
-                this.active=1;
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/users/1/orders/1").then(response => {
+                this.orders = response.data;
+            }).catch(error => {
+                console.log(error)
+            });
+            if (this.orders.status === 'waitPay') {
+                this.active = 1;
             }
-            if (this.orders.status==='waitReceive') {
-                this.active=4;
+            if (this.orders.status === 'waitReceive') {
+                this.active = 4;
             }
         }
     }

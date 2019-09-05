@@ -86,30 +86,7 @@
                 activeIndex: '1',
                 currentTab: 'all',
                 input: '',
-                effectiveOrders: [
-                    {
-                        name: "小米圈铁耳机",
-                        status: 'received',
-                        color: "golden",
-                        img: 'https://i1.mifile.cn/a1/pms_1502337101.83975105!80x80.jpg',
-                        price: 99,
-                        count: 3,
-                        date: {
-                            year: 2016,
-                            month: 4,
-                            day: 4
-                        },
-                        orderId: 201604049903,
-                        username: 'zojian',
-                        address: {
-                            province: "北京",
-                            city: "北京市",
-                            area: "东城区",
-                            street: "安定门街道"
-                        }
-
-                    },
-                ]
+                effectiveOrders: []
             }
         },
         methods: {
@@ -121,7 +98,11 @@
             }
         },
         created() {
-
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/users/1/orders?status=active").then(response=>{
+                this.effectiveOrders=response.data;
+            }).catch(error=>{
+                console.log(error)
+            })
         }
     }
 </script>
