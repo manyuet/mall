@@ -97,7 +97,11 @@
                 productNum: 0,
                 totalPrice: 0,
                 selections: [],
-                productInfos:JSON.parse(localStorage.getItem("shoppingCartProducts"))
+            }
+        },
+        computed:{
+            productInfos(){
+                return this.$store.state.cart.shoppingCart
             }
         },
         methods: {

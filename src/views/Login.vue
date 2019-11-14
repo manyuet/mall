@@ -25,7 +25,7 @@
                     </el-form-item>
                 </el-form>
                 <el-row style="margin-top: 10px;">
-                    <button style="margin-left: 25px">登录</button>
+                    <button style="margin-left: 25px" @click="loginAccount">登录</button>
                 </el-row>
                 <el-row style="margin-left: 220px;margin-top: 8px">
                     <el-link @click="openRegister"
@@ -51,10 +51,7 @@
         name: "Login",
         data() {
             return {
-                account: {
-                    username: '',
-                    password: ''
-                },
+                account: {},
                 isSelectedAccount: true,
                 isSelectedScanCode: false
             }
@@ -70,6 +67,24 @@
             },
             openRegister() {
                 this.$router.push('/register');
+            },
+            loginAccount() {
+                if (this.account.username === 'manyuet' && this.account.password === '1234') {//password也是字符串！！
+                    this.$store.commit('loginSuccess', this.account)
+                    this.$message({
+                        message: '恭喜你，用户登录成功',
+                        type: 'success'
+                    });
+                    setTimeout(() => {
+                        this.$router.push('/')
+                    }, 2000);
+                }
+                else{
+                    this.$message({
+                        message: '用户名或密码错误',
+                        type: 'warning'
+                    });
+                }
             }
 
         }

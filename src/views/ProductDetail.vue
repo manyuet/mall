@@ -76,7 +76,6 @@
                 userNotNull: true,
                 userIsNull: false,
                 selectedColor: '',
-                shoppingCartProducts: JSON.parse(localStorage.getItem('shoppingCartProducts')) || []
             }
         },
         created() {
@@ -86,9 +85,12 @@
                 console.log(error);
             });
             this.storageProduct();
-
         },
-
+        computed:{
+            shoppingCartProducts(){
+                return this.$store.state.cart.shoppingCart
+            }
+        },
         methods: {
             clickShoppingCart() {
                 if (!this.selectedColor) {
@@ -117,7 +119,7 @@
                 }
             },
             storageProduct() {
-                localStorage.setItem('shoppingCartProducts', JSON.stringify(this.shoppingCartProducts));
+                this.$store.commit('setIntoShoppingCart', this.shoppingCartProducts)
             }
         }
 
