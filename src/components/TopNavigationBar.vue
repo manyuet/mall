@@ -85,12 +85,13 @@
                 this.$router.push("/personal")
             },
             loginOut(){
-                this.$store.commit('loginOut', this.account)
+                this.$store.commit('loginOut');
+                this.$router.push('/')
             }
         },
         computed: {
             account() {
-                return this.$store.state.account.account.username
+                return this.$store.state.userInfo.account.username
             }
         }
     }

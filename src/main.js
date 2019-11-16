@@ -17,7 +17,6 @@ import {faGift} from "@fortawesome/free-solid-svg-icons/faGift";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
 
-
 library.add(
     faUser,
     faTruck,

@@ -52,6 +52,7 @@
         data() {
             return {
                 account: {},
+                userInfo: {},
                 isSelectedAccount: true,
                 isSelectedScanCode: false
             }
@@ -69,24 +70,30 @@
                 this.$router.push('/register');
             },
             loginAccount() {
-                if (this.account.username === 'manyuet' && this.account.password === '1234') {//password也是字符串！！
-                    this.$store.commit('loginSuccess', this.account)
-                    this.$message({
-                        message: '恭喜你，用户登录成功',
-                        type: 'success'
-                    });
-                    setTimeout(() => {
-                        this.$router.push('/')
-                    }, 2000);
-                }
-                else{
-                    this.$message({
-                        message: '用户名或密码错误',
-                        type: 'warning'
-                    });
-                }
+                this.axios.post("http://mock-api.com/NnX4Gkny.mock/login", this.account).then(res => {
+                    if (res.data.msg === 'login success') {
+                        this.$store.commit('loginSuccess', this.account)
+                        this.$message({
+                            message: '恭喜你，用户登录成功',
+                            type: 'success'
+                        });
+                        setTimeout(() => {
+                            if (this.$route.query.redirect) {
+                                this.$router.push(this.$route.query.redirect)
+                            } else {
+                                this.$router.push('/')
+                            }
+                        }, 1000);
+                    } else {
+                        this.$message({
+                            message: '用户名或密码错误',
+                            type: 'warning'
+                        });
+                    }
+                }).catch(() => {
+                    this.$message.warning("系统故障，请稍后再试")
+                })
             }
-
         }
     }
 </script>

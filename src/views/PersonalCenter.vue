@@ -16,7 +16,7 @@
                                     :icon="['fas', 'user']"></font-awesome-icon></span>
                         </el-avatar>
                     </el-col>
-                    <el-col :span="6"><p style="margin-top: 70px;font-size: 22px;margin-bottom: -30px">ZOJian</p>
+                    <el-col :span="6"><p style="margin-top: 70px;font-size: 22px;margin-bottom: -30px">{{this.account}}</p>
                         <span @click="displayGreeting"
                               class="displayGreeting"
                               style="font-size: 14px;color: #B0B0B0;">{{hoursTip}}</span><br>
@@ -111,8 +111,12 @@
                     this.hoursTip = "晚上好"
                 }
             },
-        }
-        ,
+        },
+        computed: {
+            account() {
+                return this.$store.state.userInfo.account.username
+            }
+        },
         created() {
             this.displayGreeting();
         }

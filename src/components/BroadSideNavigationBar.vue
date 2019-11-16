@@ -2,7 +2,7 @@
     <el-row class="tac" style="background-color: white">
         <el-col :span="4">
             <el-menu class="el-menu-vertical-demo">
-                <el-menu-item index="1" >
+                <el-menu-item index="1">
                     <i class="el-icon-mobile-phone"></i>
                     <span slot="title">手机APP</span>
                 </el-menu-item>
@@ -31,34 +31,39 @@
     export default {
         name: "BroadSideNavigationBar",
         methods: {
-            openPersonalCenter(){
-                const {href} = this.$router.resolve({
-                    name: "Personal"
-                });
-                window.open(href, "_blank");
+            openPersonalCenter() {
+                this.$router.push("/personal")
+            }
+        },
+        computed: {
+            account() {
+                return this.$store.state.userInfo.account.username
             }
         }
     }
 </script>
 
 <style scoped>
-.el-menu-item.is-active{
-    color: #fc6720;
-    background-color: white;
-}
-.el-menu-item:hover{
-    color: #fc6720;
-    background-color: white;
-}
-.el-menu-item{
-   width: 80px;
-    height: 80px;
-}
-.el-menu{
-    border: none;
-}
+    .el-menu-item.is-active {
+        color: #fc6720;
+        background-color: white;
+    }
 
-    menu-item:hover{
+    .el-menu-item:hover {
+        color: #fc6720;
+        background-color: white;
+    }
+
+    .el-menu-item {
+        width: 80px;
+        height: 80px;
+    }
+
+    .el-menu {
+        border: none;
+    }
+
+    menu-item:hover {
         background-color: white;
     }
 </style>
