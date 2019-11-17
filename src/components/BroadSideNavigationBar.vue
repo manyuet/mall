@@ -4,23 +4,23 @@
             <el-menu class="el-menu-vertical-demo">
                 <el-menu-item index="1">
                     <i class="el-icon-mobile-phone"></i>
-                    <span slot="title">手机APP</span>
+                    <span slot="title">{{$t('m.app')}}</span>
                 </el-menu-item>
                 <el-menu-item index="2" @click="openPersonalCenter">
                     <i class="el-icon-user"></i>
-                    <span slot="title">个人中心</span>
+                    <span slot="title">{{$t('m.personal')}}</span>
                 </el-menu-item>
                 <el-menu-item index="3">
                     <i class="el-icon-s-tools"></i>
-                    <span slot="title">售后服务</span>
+                    <span slot="title">{{$t('m.service')}}</span>
                 </el-menu-item>
                 <el-menu-item index="4">
                     <i class="el-icon-service"></i>
-                    <span slot="title">人工客服</span>
+                    <span slot="title">{{$t('m.manual')}}</span>
                 </el-menu-item>
                 <el-menu-item index="5">
                     <i class="el-icon-shopping-cart-full"></i>
-                    <span slot="title">购物车</span>
+                    <span slot="title">{{$t('m.cart')}}</span>
                 </el-menu-item>
             </el-menu>
         </el-col>

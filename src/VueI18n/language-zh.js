@@ -1,0 +1,23 @@
+export const m = {
+    mall: '小米商城',
+    miui: 'MIUI',
+    cloud: '云服务',
+    finance: '金融',
+    product: '有品',
+    platform: '小爱开放平台',
+    group: ' 企业团购',
+    qualification: '资质证照',
+    rules: '协议规则',
+    download: '下载app',
+    select:'SelectLocation',
+    switch: '中英语言切换',
+    login:'登录',
+    register:"注册",
+    cart:"购物车",
+    personal:'个人中心',
+    loginout:'退出登录',
+    message:'消息通知',
+    app:"手机APP",
+    service:"售后服务",
+    manual:'人工客服'
+}

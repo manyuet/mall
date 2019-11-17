@@ -1,38 +1,40 @@
 <template>
     <div style="background-color:#424242;">
-        <el-row style="line-height: 40px;">
-            <el-col :span="14">
-                <el-link style="margin-left: 5px" :underline="false" @click="openHome">小米商城</el-link>
+        <el-row style="line-height: 40px;" >
+            <el-col :span="18">
+                <el-link style="margin-left: 5px" :underline="false" @click="openHome">{{$t('m.mall')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">MIUI</el-link>
+                <el-link :underline="false">{{$t('m.miui')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">云服务</el-link>
+                <el-link :underline="false">{{$t('m.cloud')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">金融</el-link>
+                <el-link :underline="false">{{$t('m.finance')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">有品</el-link>
+                <el-link :underline="false">{{$t('m.product')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">小爱开放平台</el-link>
+                <el-link :underline="false">{{$t('m.platform')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">企业团购</el-link>
+                <el-link :underline="false">{{$t('m.group')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">资质证照</el-link>
+                <el-link :underline="false">{{$t('m.qualification')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">协议规则</el-link>
+                <el-link :underline="false">{{$t('m.rules')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">下载app</el-link>
+                <el-link :underline="false">{{$t('m.download')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">Select Location</el-link>
+                <el-link :underline="false">{{$t('m.select')}}</el-link>
+                <el-divider direction="vertical"></el-divider>
+                <el-link :underline="false" @click="switchLanguage">{{$t('m.switch')}}</el-link>
             </el-col>
-            <el-col :span="5" :offset="5">
+            <el-col :span="5" :offset="1">
                 <el-link v-if="!this.account"
                          :underline="false"
-                         @click="openLogin">登录
+                         @click="openLogin">{{$t('m.login')}}
                 </el-link>
                 <el-divider v-if="!this.account" direction="vertical"></el-divider>
                 <el-link v-if="!this.account"
                          :underline="false"
-                         @click.native="openRegister">注册
+                         @click.native="openRegister">{{$t('m.register')}}
                 </el-link>
 
                 <el-dropdown v-if="this.account">
@@ -41,26 +43,28 @@
                           <i class="el-icon-arrow-down el-icon--right"></i>
                       </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item><el-link @click.native="openPersonal" :underline="false">个人中心</el-link></el-dropdown-item>
-                        <el-dropdown-item><el-link @click.native="loginOut" :underline="false">退出登录</el-link></el-dropdown-item>
+                        <el-dropdown-item>
+                            <el-link @click.native="openPersonal" :underline="false">{{$t('m.personal')}}</el-link>
+                        </el-dropdown-item>
+                        <el-dropdown-item>
+                            <el-link @click.native="loginOut" :underline="false">{{$t('m.loginout')}}</el-link>
+                        </el-dropdown-item>
                     </el-dropdown-menu>
                 </el-dropdown>
-
-
                 <el-divider direction="vertical"></el-divider>
-                <el-link :underline="false">消息通知</el-link>
+                <el-link :underline="false">{{$t('m.message')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
                 <el-link :underline="false" @click="openShoppingCart">
                     <span class="icon ShoppingCart"><font-awesome-icon
                             :icon="['fas', 'shopping-cart']"></font-awesome-icon></span>
-                    购物车
+                    {{$t('m.cart')}}
                 </el-link>
             </el-col>
 
         </el-row>
     </div>
-
 </template>
+
 
 <script>
     export default {
@@ -84,9 +88,13 @@
             openPersonal() {
                 this.$router.push("/personal")
             },
-            loginOut(){
+            loginOut() {
                 this.$store.commit('loginOut');
                 this.$router.push('/')
+            },
+            switchLanguage(){
+                let m=this.$i18n.locale==='zh'?'en':'zh'
+                this.$i18n.locale=m
             }
         },
         computed: {

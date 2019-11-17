@@ -1,0 +1,23 @@
+export const m = {
+    mall: 'Mi\'s mall',
+    miui: 'MIUI',
+    cloud: 'Cloud',
+    finance: 'Finance',
+    product: 'Product',
+    platform: 'Platform',
+    group: ' GroupBuy',
+    qualification: 'Certificate',
+    rules: 'AgreementRules',
+    download: 'DownloadApp',
+    select:'SelectLocation',
+    switch: 'Language',
+    login:'Login',
+    register:"Register",
+    cart:"Cart",
+    personal:'Personal',
+    loginout:'LoginOut',
+    message:'Message',
+    app:"PhoneApp",
+    service:"Afterale",
+    manual:'Artificial'
+}
