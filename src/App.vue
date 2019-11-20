@@ -3,7 +3,7 @@
         <div class="frame">
         <top-navigation-bar/>
             <navigation-bar/>
-            <div style="min-height: 700px">
+            <div class="router">
                 <router-view/>
             </div>
             <web-bottom/>
@@ -39,5 +39,8 @@
         margin-right: auto;
     }
 
+    .router{
+        min-height: 700px
+    }
 
 </style>

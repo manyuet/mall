@@ -1,14 +1,14 @@
 <template>
 
-    <div style="height: 1000px;background-color: white;padding-left: 50px;margin-top: -14px;padding-top: 50px">
+    <div id="frame">
         <div v-for="(menu,index) in Menus"
              :key="index"
-             style="margin-top: 40px">
-            <p style="color: #070707;font-size: 16px;">{{menu.title}}</p>
+             class="menu-index">
+            <p class="title">{{menu.title}}</p>
             <p v-for="(item,index) in menu.children"
                :key="index"
                @click="Fn(item.method)"
-               style="color: #757575;font-size: 14px">
+               class="item">
                 <el-link :underline="false">{{item.title}}</el-link>
             </p>
         </div>
@@ -23,10 +23,10 @@
                 Menus: []
             }
         },
-        created(){
-            this.axios.get("http://mock-api.com/NnX4Gkny.mock/users/menu").then(response=>{
-                this.Menus=response.data;
-            }).catch(error=>{
+        created() {
+            this.axios.get("http://mock-api.com/NnX4Gkny.mock/users/menu").then(response => {
+                this.Menus = response.data;
+            }).catch(error => {
                 console.log(error)
             })
         },
@@ -48,7 +48,30 @@
     .el-link:hover {
         color: #333333;
     }
+
     .el-link:active {
         color: #2c9cfa;
+    }
+
+    #frame {
+        height: 1000px;
+        background-color: white;
+        padding-left: 50px;
+        margin-top: -14px;
+        padding-top: 50px
+    }
+
+    .title {
+        color: #070707;
+        font-size: 16px;
+    }
+
+    .item {
+        color: #757575;
+        font-size: 14px
+    }
+
+    .menu-index {
+        margin-top: 40px
     }
 </style>

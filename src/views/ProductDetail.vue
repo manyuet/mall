@@ -2,54 +2,55 @@
     <div style="background-color: white">
         <el-row>
             <el-col :span="11">
-                <el-carousel trigger="click" height="560px">
+                <el-carousel trigger="click">
                     <el-carousel-item v-for="(image,index) in productInfos.imgUrls" :key="index">
-                        <img :src="image" style="width: 560px;height: 560px;"/>
+                        <img :src="image" class="item-img"/>
                     </el-carousel-item>
                 </el-carousel>
             </el-col>
-            <el-col :offset="1" :span="12" style="margin-top: 20px">
-                <span style="font-size: 24px">{{productInfos.title}}</span><br>
-                <div style="font-size: 14px;color: rgb(176,176,176);margin-top: 5px">{{productInfos.desc}}</div>
+            <el-col :offset="1" :span="12" class="detail">
+                <span class="title">{{productInfos.title}}</span><br>
+                <div class="desc">{{productInfos.desc}}</div>
                 <br>
-                <span style="font-size: 18px;color: #2c9cfa">{{productInfos.price}}元</span><br>
-                <el-row style="background-color: #2c9cfa;color: white;line-height: 40px;margin-top: 5px">
+                <span class="price">{{productInfos.price}}元</span><br>
+                <el-row class="cut-time">
                     <cut-time-down/>
                 </el-row>
-                <el-row style="background-color:rgb(249,249,250);color: #2c9cfa;line-height: 50px;margin-top: 5px;">
-                    <span style="margin-left: 15px;font-size: 24px">￥{{productInfos.price}}元</span>
+                <el-row class="row-price">
+                    <span class="span-price">￥{{productInfos.price}}元</span>
                 </el-row>
-                <el-row style="line-height: 70px;background-color: rgb(250,250,250);margin-top: 5px">
-                    <i class="el-icon-location-outline" style="margin-left: 20px;margin-right: 10px"></i>
+                <el-row class="row-addr">
+                    <i class="el-icon-location-outline"></i>
                     <span v-for="(addr,index) in productInfos.address" :key="index"
-                          style="margin-right: 10px;">{{addr}}</span>
+                          class="span-addr">{{addr}}</span>
                 </el-row>
-                <div style="margin-top: 10px">
+                <div class="choose-color">
                     <span>选择颜色</span><br>
                     <el-radio v-model="selectedColor"
                               v-for="(color,index) in productInfos.colors"
                               :key="index"
                               :label="color.label"
                               border
-                              style="width: 175px;fill: #2c9cfa"
                     >
                     </el-radio>
                 </div>
-                <el-row style="background-color: rgb(249,249,250);line-height: 50px;margin-top: 10px">
-                    <span style="margin-left: 15px">{{productInfos.title}}</span><br>
-                    <span style="color: #2c9cfa;font-size: 24px;margin-left: 15px">{{productInfos.price}}元</span>
+                <el-row class="row-info">
+                    <span class="span-title">{{productInfos.title}}</span><br>
+                    <span class="span-info-price">{{productInfos.price}}元</span>
                 </el-row>
-                <el-row style="margin-top: 10px">
+                <el-row class="row-buy">
                     <el-button v-if="userNotNull"
                                :class={username:userNotNull}
+                               class="button-user"
                                @click.native="clickShoppingCart"
-                               style="background-color: #2c9cfa;color: white;width: 280px">加入购物车
+                               style="background-color: #2c9cfa;color: white">加入购物车
                     </el-button>
                     <el-button v-else
                                :class={username:userIsNull}
-                               style="background-color: #2c9cfa;color: white;width: 280px">登录后购买
+                               class="button-user"
+                               style="background-color: #2c9cfa;color: white">登录后购买
                     </el-button>
-                    <el-button style="background-color: rgb(176,176,176);color: white;width: 150px">
+                    <el-button class="collect">
                         <i class="el-icon-star-off"></i>&nbsp;收藏
                     </el-button>
                 </el-row>
@@ -57,8 +58,8 @@
         </el-row>
         <el-row v-for="(image,index) in productInfos.descImaUrls"
                 :key="index"
-                style="width: 100%;background-color:rgb(245,245,245)">
-            <img :src="image">
+                class="row-img">
+            <img :src="image" class="row-image">
         </el-row>
     </div>
 </template>
@@ -86,8 +87,8 @@
             });
             this.storageProduct();
         },
-        computed:{
-            shoppingCartProducts(){
+        computed: {
+            shoppingCartProducts() {
                 return this.$store.state.cart.shoppingCart
             }
         },
@@ -102,7 +103,7 @@
                         color: this.selectedColor,
                         imgSrc: this.productInfos.imgUrls[0],
                         count: 1,
-                        address:this.productInfos.address
+                        address: this.productInfos.address
                     }
                     let flag = false;
                     for (const shoppingCartProduct of this.shoppingCartProducts) {
@@ -128,5 +129,111 @@
 </script>
 
 <style scoped>
+    .item-img {
+        width: 560px;
+        height: 560px;
+    }
+    .el-carousel{
+        height:560px
+    }
 
+    .detail {
+        margin-top: 20px
+    }
+
+    .title {
+        font-size: 24px
+    }
+
+    .desc {
+        font-size: 14px;
+        color: rgb(176, 176, 176);
+        margin-top: 5px
+    }
+
+    .price {
+        font-size: 18px;
+        color: #2c9cfa
+    }
+
+    .cut-time {
+        background-color: #2c9cfa;
+        color: white;
+        line-height: 40px;
+        margin-top: 5px
+    }
+
+    .row-price {
+        background-color: rgb(249, 249, 250);
+        color: #2c9cfa;
+        line-height: 50px;
+        margin-top: 5px;
+    }
+
+    .span-price {
+        margin-left: 15px;
+        font-size: 24px
+    }
+
+    .row-addr {
+        line-height: 70px;
+        background-color: rgb(250, 250, 250);
+        margin-top: 5px
+    }
+
+    .el-icon-location-outline {
+        margin-left: 20px;
+        margin-right: 10px
+    }
+
+    .span-addr {
+        margin-right: 10px;
+    }
+
+    .choose-color {
+        margin-top: 10px
+    }
+
+    .el-radio {
+        width: 175px;
+        fill: #2c9cfa
+    }
+
+    .row-info {
+        background-color: rgb(249, 249, 250);
+        line-height: 50px;
+        margin-top: 10px
+    }
+
+    .span-title {
+        margin-left: 15px
+    }
+
+    .span-info-price {
+        color: #2c9cfa;
+        font-size: 24px;
+        margin-left: 15px
+    }
+
+    .row-buy {
+        margin-top: 10px
+    }
+
+    .button-user {
+        width: 280px
+    }
+
+    .collect {
+        background-color: rgb(176, 176, 176);
+        color: white;
+        width: 150px
+    }
+
+    .row-img {
+        width: 100%;
+        background-color: rgb(245, 245, 245)
+    }
+    img.row-image{
+        width: 100%;
+    }
 </style>

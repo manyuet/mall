@@ -1,8 +1,8 @@
 <template>
     <div style="background-color:#424242;">
-        <el-row style="line-height: 40px;" >
+        <el-row class="row">
             <el-col :span="18">
-                <el-link style="margin-left: 5px" :underline="false" @click="openHome">{{$t('m.mall')}}</el-link>
+                <el-link class="mall" :underline="false" @click="openHome">{{$t('m.mall')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
                 <el-link :underline="false">{{$t('m.miui')}}</el-link>
                 <el-divider direction="vertical"></el-divider>
@@ -92,9 +92,9 @@
                 this.$store.commit('loginOut');
                 this.$router.push('/')
             },
-            switchLanguage(){
-                let m=this.$i18n.locale==='zh'?'en':'zh'
-                this.$i18n.locale=m
+            switchLanguage() {
+                let m = this.$i18n.locale === 'zh' ? 'en' : 'zh';
+                this.$i18n.locale = m
             }
         },
         computed: {
@@ -131,5 +131,13 @@
 
     .el-icon-arrow-down {
         font-size: 12px;
+    }
+
+    .row {
+        line-height: 40px;
+    }
+
+    .mall {
+        margin-left: 5px
     }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div id="frame">
         <div id="register">
-            <el-row style="line-height: 50px;margin-top: 30px">
-                <p style="text-align: center; font-size: 26px;color: #666666">注册界面</p>
+            <el-row class="row-register">
+                <p class="p-register">注册界面</p>
             </el-row>
-            <el-form :model="account" :rules="rules" ref="account" label-width="100px" style="width: 400px">
+            <el-form :model="account" :rules="rules" ref="account" label-width="100px" class="form-account">
                 <el-form-item label="用户名" prop="username">
                     <el-input type="username" v-model="account.username"></el-input>
                 </el-form-item>
@@ -64,10 +64,10 @@
                 },
                 rules: {
                     pass: [
-                        {validator: validatePass, trigger: 'blur',required:true}
+                        {validator: validatePass, trigger: 'blur', required: true}
                     ],
                     checkPass: [
-                        {validator: validatePass2, trigger: 'blur',required:true}
+                        {validator: validatePass2, trigger: 'blur', required: true}
                     ],
                     username: [
                         {required: true, message: '请输入用户名', trigger: 'blur'}
@@ -135,13 +135,30 @@
     .el-form {
         margin-left: 60px;
     }
-    .el-button--primary{
+
+    .el-button--primary {
         background-color: #fc6720;
         border-color: #fc6720;
     }
-    .el-button--primary:active{
+
+    .el-button--primary:active {
         background-color: #fc6720;
         border-color: #fc6720;
+    }
+
+    .row-register {
+        line-height: 50px;
+        margin-top: 30px
+    }
+
+    .p-register {
+        text-align: center;
+        font-size: 26px;
+        color: #666666
+    }
+
+    .form-account {
+        width: 400px
     }
 
 </style>

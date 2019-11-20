@@ -1,7 +1,7 @@
 <template>
-    <el-menu :default-active="activeIndex" class="el-menu-demo"  mode="horizontal">
-        <el-submenu index="1" >
-            <template slot="title" >小米手机</template>
+    <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+        <el-submenu index="1">
+            <template slot="title">小米手机</template>
             <el-menu-item index="1-1" mode="horizontal">小米CC9</el-menu-item>
             <el-menu-item index="1-2" mode="horizontal">小米CC9e</el-menu-item>
             <el-menu-item index="1-3" mode="horizontal">选项3</el-menu-item>

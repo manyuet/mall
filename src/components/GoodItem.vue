@@ -1,12 +1,11 @@
 <template>
     <div class="goodsDetailFrame">
-        <el-card style="height: 300px;width: 224px"  shadow="hover">
-            <img :src="product.imageSrc"
-                 style="height: 160px;width: 160px;margin: 0 auto"><br>
+        <el-card shadow="hover">
+            <img :src="product.imageSrc"><br>
             <div>
-                <span style="font-size: 14px">{{product.title}}</span><br>
-                <span style="color: darkgrey;font-size: 12px;">{{product.desc}}</span><br>
-                <span style="color: #fc6720;font-size: 14px;">{{product.price}}元</span>
+                <span class="title">{{product.title}}</span><br>
+                <span class="desc">{{product.desc}}</span><br>
+                <span class="price">{{product.price}}元</span>
             </div>
         </el-card>
     </div>
@@ -15,13 +14,38 @@
 <script>
     export default {
         name: "GoodItem",
-        props:['product']
+        props: ['product']
     }
 </script>
 
 <style scoped>
     .goodsDetailFrame {
         margin: 5px;
+    }
+
+    .el-card {
+        height: 300px;
+        width: 224px
+    }
+
+    img {
+        height: 160px;
+        width: 160px;
+        margin: 0 auto
+    }
+
+    .title {
+        font-size: 14px
+    }
+
+    .desc {
+        color: darkgrey;
+        font-size: 12px;
+    }
+
+    .price {
+        color: #fc6720;
+        font-size: 14px;
     }
 
 </style>

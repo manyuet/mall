@@ -1,16 +1,16 @@
 <template>
     <div>
-        <i style="margin-left: 20px" class="el-icon-timer"></i>
-        <span style="margin-left: 10px">秒杀</span>
-        <span style="float: right;margin-right: 10px">距结束&nbsp;{{countDownList}}</span>
+        <i class="el-icon-timer"></i>
+        <span class="miaosha">秒杀</span>
+        <span class="jieshu">距结束&nbsp;{{countDownList}}</span>
     </div>
 </template>
 
 <script>
     export default {
         name: "CutTimeDown",
-        data(){
-            return{
+        data() {
+            return {
                 countDownList: '00时00分00秒',
                 actEndTime: '2019-08-21 18:30:00'
             }
@@ -18,7 +18,7 @@
         created() {
             this.countDown();
         },
-        methods:{
+        methods: {
             timeFormat(param) {
                 return param < 10 ? '0' + param : param;
             },
@@ -49,7 +49,7 @@
                         };
                         clearInterval(interval);
                     }
-                    this.countDownList =  obj.hou + '时 ' + obj.min + '分 ' + obj.sec + '秒';
+                    this.countDownList = obj.hou + '时 ' + obj.min + '分 ' + obj.sec + '秒';
                 }, 1000);
             }
         }
@@ -58,5 +58,16 @@
 </script>
 
 <style scoped>
+    .el-icon-timer {
+        margin-left: 20px
+    }
 
+    .miaosha {
+        margin-left: 10px
+    }
+
+    .jieshu {
+        float: right;
+        margin-right: 10px
+    }
 </style>
