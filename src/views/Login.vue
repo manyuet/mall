@@ -51,7 +51,10 @@
         name: "Login",
         data() {
             return {
-                account: {},
+                account: {
+                    username: 'manyuet',
+                    password: '1234'
+                },
                 userInfo: {},
                 isSelectedAccount: true,
                 isSelectedScanCode: false
