@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve --open",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
@@ -12,12 +12,9 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/vue-fontawesome": "^0.1.6",
-    "amfe-flexible": "^2.2.1",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.11.1",
-    "lib-flexible": "^0.3.2",
-    "postcss-px2rem": "^0.3.0",
     "vue": "^2.6.10",
     "vue-axios": "^2.1.4",
     "vue-router": "^3.1.2",
@@ -30,8 +27,6 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
-    "postcss-pxtorem": "^4.0.1",
-    "px2rem-loader": "^0.1.9",
     "vue-i18n": "^8.15.0",
     "vue-template-compiler": "^2.6.10"
   },

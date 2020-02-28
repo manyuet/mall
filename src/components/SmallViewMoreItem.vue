@@ -1,13 +1,13 @@
 <template>
-    <div class="smallGoodsDetailFrame">
-        <el-card shadow="hover">
+    <div class="smallGoodsDetailFrame" style="width: 226px">
+        <el-card style="height: 140px" shadow="hover">
             <el-row>
                 <el-col :span="12">
-                    <el-row class="viewmore"><span class="more">浏览更多</span></el-row>
-                    <el-row><span class="expect">尽情期待</span></el-row>
+                    <el-row style="margin-top: 20px"><span style="font-size: 17px">浏览更多</span></el-row>
+                    <el-row><span style="font-size: 12px;color: darkgrey">尽情期待</span></el-row>
                 </el-col>
                 <el-col :span="12">
-                    <i class="el-icon-right"></i>
+                    <i style="font-size: 60px;margin-top: 20px" class="el-icon-right"/>
                 </el-col>
             </el-row>
         </el-card>
@@ -23,28 +23,5 @@
 <style scoped>
     .smallGoodsDetailFrame {
         margin-top: 10px;
-        width: 226px
-    }
-
-    .el-card {
-        height: 140px
-    }
-
-    .viewmore {
-        margin-top: 20px
-    }
-
-    .more {
-        font-size: 17px
-    }
-
-    .expect {
-        font-size: 12px;
-        color: darkgrey
-    }
-
-    .el-icon--right {
-        font-size: 60px;
-        margin-top: 20px
     }
 </style>

@@ -8,9 +8,6 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import store from './store'
 import VueI18n from 'vue-i18n'
-import 'lib-flexible'
-import 'amfe-flexible/index.js'
-
 
 import {FontAwesomeIcon} from "@fortawesome/vue-fontawesome";
 import {library} from "@fortawesome/fontawesome-svg-core";
@@ -21,7 +18,7 @@ import {faGift} from "@fortawesome/free-solid-svg-icons/faGift";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons/faMapMarkerAlt";
 import {faShoppingCart} from "@fortawesome/free-solid-svg-icons/faShoppingCart";
 
-Vue.use(VueI18n) // 通过插件的形式挂载，通过全局方法 Vue.use() 使用插件
+Vue.use(VueI18n) // 通过插件的形式挂载，通过全局方法 Vue.use() 使用插件const i18n = new VueI18n({
 const i18n =new VueI18n({
     locale: 'zh', // 语言标识 //this.$i18n.locale // 通过切换locale的值来实现语言切换
     messages: {

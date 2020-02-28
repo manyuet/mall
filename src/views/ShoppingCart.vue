@@ -5,14 +5,14 @@
                     ref="multipleTable"
                     :data="productInfos"
                     tooltip-effect="dark"
-                    class="table-info"
+                    style="width: 100%"
                     @selection-change="handleSelectionChange">
                 <el-table-column
                         label="全选"
                         type="selection"
                         width="100">
                 </el-table-column>
-                <el-table-column class="col-name"
+                <el-table-column style="left: 10px"
                                  prop="name"
                                  label="商品名称"
                                  width="450"
@@ -21,9 +21,9 @@
                     <template slot-scope="scope">
                         <el-row>
                             <el-col :span="3">
-                                <img :src="scope.row.imgSrc" class="col-img"/>
+                                <img :src="scope.row.imgSrc" style="width: 80px;height:80px "/>
                             </el-col>
-                            <el-col :span="18" class="col-color">
+                            <el-col :span="18" style="line-height: 85px">
                                 {{scope.row.name}}&nbsp;{{scope.row.color}}
                             </el-col>
                         </el-row>
@@ -66,21 +66,20 @@
             </el-table>
         </div>
         <div id="totalPrice">
-            <el-row class="row-total">
-                <el-col :span="2" :offset="1" class="col-shopping">继续购物</el-col>
-                <el-col :span="4" class="col-shopping">共<span
-                        class="span-num">{{productInfos.length}}</span>件商品， 已选择
-                    <span class="span-piece">{{productNum}}</span>件
+            <el-row style="line-height: 50px">
+                <el-col :span="2" :offset="1" style="font-size: 14px;color: #757575">继续购物</el-col>
+                <el-col :span="4" style="font-size: 14px;color: #757575">共<span
+                        style="color: rgb(44,156,250);margin-left: 5px;margin-right: 5px">{{productInfos.length}}</span>件商品， 已选择
+                    <span style="color: #2C9CFA;margin-left: 3px;margin-right: 5px">{{productNum}}</span>件
                 </el-col>
                 <el-col :span="12" style="text-align: right;"><span
-                        class="span-all">合计:&nbsp;&nbsp;</span></el-col>
-                <el-col :span="1" style="text-align: left">
-                    <span class="span-total">{{totalPrice}}</span>
+                        style="color: #2C9CFA;font-size: 14px">合计:&nbsp;&nbsp;</span></el-col>
+                    <el-col :span="1" style="text-align: left">
+                        <span style="color: #2C9CFA;font-size: 30px;">{{totalPrice}}</span>
                 </el-col>
                 <el-col :span="4">
                     <el-button @click.native="confirmOrder"
-                               class="button-pay">去结算
-                    </el-button>
+                            style="background-color: #2C9CFA;float: right;color: white;line-height: 28px;width: 150px">去结算</el-button>
                 </el-col>
 
             </el-row>
@@ -100,8 +99,8 @@
                 selections: [],
             }
         },
-        computed: {
-            productInfos() {
+        computed:{
+            productInfos(){
                 return this.$store.state.cart.shoppingCart
             }
         },
@@ -110,7 +109,7 @@
                 this.productNum = selections.length;
                 this.selections = selections;
                 this.calculateTotalPrice();
-                localStorage.setItem("selectedProducts", JSON.stringify(this.selections));
+                localStorage.setItem("selectedProducts",JSON.stringify(this.selections));
             },
             deleteRow(index, rows) {
                 rows.splice(index, 1);
@@ -121,10 +120,11 @@
                     this.totalPrice += Number(selection.count) * Number(selection.price);
                 }
             },
-            confirmOrder() {
-                if (!this.productNum) {
+            confirmOrder(){
+                if(!this.productNum){
                     this.$message.error('请选择商品结算');
-                } else {
+                }
+                else {
                     this.$router.push("/confirmOrder");
                 }
             }
@@ -144,62 +144,6 @@
         width: 1226px;
         background-color: white;
         margin-top: 30px;
-    }
-
-    .table-info {
-        width: 100%
-    }
-
-    .col-name {
-        left: 10px
-    }
-
-    .col-img {
-        width: 80px;
-        height: 80px
-    }
-
-    .col-color {
-        line-height: 85px
-    }
-
-    .row-total {
-        line-height: 50px
-    }
-
-    .col-shopping {
-        font-size: 14px;
-        color: #757575
-    }
-
-    .span-num {
-        color: rgb(44, 156, 250);
-        margin-left: 5px;
-        margin-right: 5px
-    }
-
-    .span-piece {
-        color: #2C9CFA;
-        margin-left: 3px;
-        margin-right: 5px
-    }
-
-    .span-all {
-        color: #2C9CFA;
-        font-size: 14px
-    }
-
-    .span-total {
-        color: #2C9CFA;
-        font-size: 30px;
-    }
-
-    .button-pay {
-        background-color: #2C9CFA;
-        float: right;
-        color: white;
-        line-height: 28px;
-        width: 150px
     }
 
 </style>
