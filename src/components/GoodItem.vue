@@ -1,6 +1,6 @@
 <template>
     <div class="goodsDetailFrame">
-        <el-card shadow="hover">
+        <el-card shadow="hover" @click.native="openProductDetail">
             <img :src="product.imageSrc"><br>
             <div>
                 <span class="title">{{product.title}}</span><br>
@@ -14,7 +14,16 @@
 <script>
     export default {
         name: "GoodItem",
-        props: ['product']
+        props: ['product'],
+        methods: {
+            openProductDetail() {
+                const {href} = this.$router.resolve({
+                    name: "Product",
+                    query: {productId: '12345'}
+                });
+                window.open(href, "_blank")
+            }
+        }
     }
 </script>
 
